@@ -129,6 +129,8 @@ class PlayerComputerViewController: UIViewController,UICollectionViewDelegate,UI
         
     }
     
+    //Computer's chance, a random block will be selected out of all the remaining blocks and "O" will be placed in one of the empty cell.
+    
     func computerTurn(){
         
         b = false
@@ -201,6 +203,8 @@ class PlayerComputerViewController: UIViewController,UICollectionViewDelegate,UI
         
     }
     
+    //Check winning condition
+    
     func winning(){
         
         var title:String = ""
@@ -252,14 +256,11 @@ class PlayerComputerViewController: UIViewController,UICollectionViewDelegate,UI
         }
     }
     
+    // Pops an alert view as soon as a Winning condition
+    
     func addAlertView(title:String, message:String){
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        //alert.addAction(UIAlertAction(title: "Reset", style: UIAlertActionStyle.default, handler: nil))
-        //alert.addAction(UIAlertAction(title: "Reset", style: UIAlertActionStyle.default, handler: nil))
-        
-        
-        
         
         alert.addAction(UIAlertAction(title: "Reset", style: UIAlertActionStyle.default, handler: { (action) in
             self.reloadView()
@@ -275,6 +276,8 @@ class PlayerComputerViewController: UIViewController,UICollectionViewDelegate,UI
         
     }
     
+    //Resets the view wehn reload button on right navigation bar is pressed or Reset button in the alert view is pressed
+    
     func reloadView(){
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PlayerComputerViewController") as! PlayerComputerViewController
@@ -284,6 +287,8 @@ class PlayerComputerViewController: UIViewController,UICollectionViewDelegate,UI
         player.stop()
         self.navigationController?.setViewControllers(navView!, animated: true)
     }
+    
+    //The text fields are updated with the player scores
     
     func playerScores(){
         
@@ -296,6 +301,8 @@ class PlayerComputerViewController: UIViewController,UICollectionViewDelegate,UI
         
         
     }
+    
+     //Draw condition is checked
     
     func draw(){
         
