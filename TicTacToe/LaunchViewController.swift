@@ -16,6 +16,12 @@ class LaunchViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         self.navigationController?.navigationBar.isTranslucent = false
+        
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "player1")
+        defaults.removeObject(forKey: "player2")
+    
+        
     }
 
     override func didReceiveMemoryWarning() {

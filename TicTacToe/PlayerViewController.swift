@@ -11,10 +11,31 @@ import UIKit
 class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,TicProtocol {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet var player1: UILabel!
+    @IBOutlet var player2: UILabel!
+    
+    let defaults = UserDefaults.standard
+    
+    var player1Score:Int?
+    var player2Score:Int?
+    
     var isPlayed = 0
+    
+    var gameActive:Bool = false
+    var a:Bool = false
+    var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var winningCombinations = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        playerScores()
+        
+        let refreshButton = UIBarButtonItem(image: UIImage(named:"refresh"), style: UIBarButtonItemStyle.plain, target:self , action: #selector(PlayerViewController.reloadView))
+        navigationItem.rightBarButtonItem = refreshButton
+        navigationItem.title = "Player 1's turn"
+        
         initialSetup()
     }
     func initialSetup(){
@@ -37,7 +58,7 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! TicCell
-        cell.cellValue.text = "-"
+        cell.cellValue.text = ""
             
         cell.layer.borderColor =  UIColor.white.cgColor
         cell.layer.borderWidth = 1
@@ -45,17 +66,32 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("IndexPath:\(indexPath.item)")
+        //print("IndexPath:\(indexPath.item)")
         let cell = collectionView.cellForItem(at: indexPath) as! TicCell
+        
+        
+        if (a == false){
+        
+            isPlayed = 2
+        }
+        
+        gameState[indexPath.item] = isPlayed
+        
         if isPlayed == Player.One.rawValue{
-            isPlayed = 1
-            cell.cellValue.text = "X"
+            isPlayed = 2
+            cell.cellValue.text = "O"
+            navigationItem.title = "Player 1's Turn"
             
         }else{
-            isPlayed = 0
-            cell.cellValue.text = "O"
+            isPlayed = 1
+            cell.cellValue.text = "X"
+            navigationItem.title = "Player 2's Turn"
+            a = true
         }
         cell.isUserInteractionEnabled = false
+        
+        winning()
+        print(gameState)
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -75,10 +111,99 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
     func didTapOnCell(cell: TicCell) {
         
     }
+    
+    func winning(){
+    
+        var title:String = ""
+        var message:String = ""
+        
+        for combination in winningCombinations{
+            
+            
+            if (gameState[combination[0]] != 0 && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]]) {
+                
+                if (gameState[combination[0]] == 1){
+                    
+                    title = "Player 2 has won"
+                    message = "Would you like to play again ?"
+                    addAlertView(title:title, message:message)
+                    player2Score = player2Score! + 1
+                    defaults.set(player1Score, forKey: "player2")
+                    defaults.synchronize()
+                    playerScores()
+            
+                print("Noughts has won!")
+                
+                }
+            
+                if gameState[combination[0]] == 2 {
+                
+                    title = "Player 1 has won"
+                    message = "Would you like to play again ?"
+                    addAlertView(title:title, message:message)
+                    player1Score = player1Score! + 1
+                    defaults.set(player1Score, forKey: "player1")
+                    defaults.synchronize()
+                    playerScores()
+                
+                print("Crosses has won!")
+                
+            }
+        }
+     }
+  }
+    
+    func addAlertView(title:String, message:String){
+    
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        //alert.addAction(UIAlertAction(title: "Reset", style: UIAlertActionStyle.default, handler: nil))
+        //alert.addAction(UIAlertAction(title: "Reset", style: UIAlertActionStyle.default, handler: nil))
+        
+        
+    
+    
+        alert.addAction(UIAlertAction(title: "Reset", style: UIAlertActionStyle.default, handler: { (action) in
+            self.reloadView()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) in
+            
+            self.gameActive = true
+            self.dismiss(animated: true, completion: nil)
+            self.collectionView.allowsSelection = false
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+    func reloadView(){
+    
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PlayerViewController")
+        var navView = self.navigationController?.viewControllers
+        navView?.remove(at: 1)
+        navView?.append(vc)
+        self.navigationController?.setViewControllers(navView!, animated: true)
+    
+    }
+    
+    func playerScores(){
+    
+        player1Score = defaults.object(forKey: "player1") as? Int ?? 0
+        player2Score = defaults.object(forKey: "player2") as? Int ?? 0
+        
+        
+        player1.text = "\(player1Score!)"
+        player2.text = "\(player2Score!)"
+        
+        
+    }
+    
+    
 }
 
 enum Player:Int{
-    case One = 0,
-    Two = 1
+    case One = 1,
+    Two = 2
 }
 
