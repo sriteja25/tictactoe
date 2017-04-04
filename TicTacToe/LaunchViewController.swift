@@ -20,6 +20,8 @@ class LaunchViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "player1")
         defaults.removeObject(forKey: "player2")
+        defaults.removeObject(forKey: "player")
+        defaults.removeObject(forKey: "computer")
     
         
     }
@@ -34,7 +36,8 @@ class LaunchViewController: UIViewController {
     }
     
     @IBAction func didTapOnComputer(_ sender: Any) {
-        //Pending...
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PlayerComputerViewController") as! PlayerComputerViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func didTapOnHistory(_ sender: Any) {

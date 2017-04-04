@@ -20,6 +20,7 @@
 		85DFD7331E9341840059A308 /* TicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD7321E9341840059A308 /* TicCell.swift */; };
 		85DFD7381E935C240059A308 /* TicTacToeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD7361E935C240059A308 /* TicTacToeModel.xcdatamodeld */; };
 		85DFD73B1E935F140059A308 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD73A1E935F140059A308 /* LaunchViewController.swift */; };
+		CBCAECE91E93E7C400E36521 /* PlayerComputerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAECE81E93E7C400E36521 /* PlayerComputerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		85DFD7321E9341840059A308 /* TicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicCell.swift; sourceTree = "<group>"; };
 		85DFD7371E935C240059A308 /* TicTacToeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TicTacToeModel.xcdatamodel; sourceTree = "<group>"; };
 		85DFD73A1E935F140059A308 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		CBCAECE81E93E7C400E36521 /* PlayerComputerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerComputerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		85DFD7391E935EFD0059A308 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CBCAECE81E93E7C400E36521 /* PlayerComputerViewController.swift */,
 				85DFD71E1E9340FF0059A308 /* PlayerViewController.swift */,
 				85DFD73A1E935F140059A308 /* LaunchViewController.swift */,
 				8525448D1E93CA6400D82BA1 /* HistoryViewController.swift */,
@@ -190,6 +193,7 @@
 				8525448C1E93C7CD00D82BA1 /* History+CoreDataProperties.swift in Sources */,
 				85DFD7381E935C240059A308 /* TicTacToeModel.xcdatamodeld in Sources */,
 				85DFD73B1E935F140059A308 /* LaunchViewController.swift in Sources */,
+				CBCAECE91E93E7C400E36521 /* PlayerComputerViewController.swift in Sources */,
 				85DFD71F1E9340FF0059A308 /* PlayerViewController.swift in Sources */,
 				85DFD71D1E9340FF0059A308 /* AppDelegate.swift in Sources */,
 				8525448B1E93C7CD00D82BA1 /* History+CoreDataClass.swift in Sources */,
