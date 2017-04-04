@@ -22,6 +22,9 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.reloadData()
+        
+        
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
