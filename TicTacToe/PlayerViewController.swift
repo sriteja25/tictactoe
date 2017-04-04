@@ -178,13 +178,11 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     func reloadView(){
     
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PlayerViewController")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
         var navView = self.navigationController?.viewControllers
         navView?.remove(at: 1)
         navView?.append(vc)
         self.navigationController?.setViewControllers(navView!, animated: true)
-    
     }
     
     func playerScores(){
