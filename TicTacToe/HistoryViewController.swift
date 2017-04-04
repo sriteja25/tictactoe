@@ -27,6 +27,7 @@ class HistoryViewController: UIViewController,UITableViewDataSource,UITableViewD
         let fetchReq = NSFetchRequest<NSFetchRequestResult>()
         let entityDescription = NSEntityDescription.entity(forEntityName: entityName, in: managedObjectContext)
         fetchReq.entity = entityDescription
+        fetchReq.sortDescriptors = [NSSortDescriptor(key: "playedOn", ascending: false)] //Show recently played at first. 
         do{
             let fetchRes = try managedObjectContext.fetch(fetchReq)
             return fetchRes
@@ -55,7 +56,7 @@ class HistoryViewController: UIViewController,UITableViewDataSource,UITableViewD
         cell.pOne.text = object?.winner
         cell.pTwo.text = object?.loser
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/YYYY HH:mm:s"
+        dateFormatter.dateFormat = "dd/MM/YYYY"
         if let _ = object?.playedOn{
             let dateStr = dateFormatter.string(from: object!.playedOn!)
             cell.date.text = dateStr

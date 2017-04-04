@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class PlayerComputerViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,TicProtocol {
     
@@ -15,8 +16,10 @@ class PlayerComputerViewController: UIViewController,UICollectionViewDelegate,UI
     
     @IBOutlet var player1: UILabel!
     @IBOutlet var player2: UILabel!
-    var player:AVAudioPlayer!
     
+    var player:AVAudioPlayer!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var managedObjectContext:NSManagedObjectContext{return appDelegate.managedObjectContext}
     let defaults = UserDefaults.standard
     
     var playerScore:Int?
@@ -223,6 +226,7 @@ class PlayerComputerViewController: UIViewController,UICollectionViewDelegate,UI
                     computerScore = computerScore! + 1
                     defaults.set(computerScore, forKey: "computer")
                     defaults.synchronize()
+                    saveData(winner: "Computer", loser: "Player 1")
                     playerScores()
                     
                     print("Noughts has won!")
@@ -238,6 +242,7 @@ class PlayerComputerViewController: UIViewController,UICollectionViewDelegate,UI
                     playerScore = playerScore! + 1
                     defaults.set(playerScore, forKey: "player")
                     defaults.synchronize()
+                    saveData(winner: "Player 1", loser: "Computer")
                     playerScores()
                     
                     print("Crosses has won!")
@@ -325,6 +330,20 @@ class PlayerComputerViewController: UIViewController,UICollectionViewDelegate,UI
         
     }
     
+    //Core Data.
+    func createEntity(entityName:String) -> NSManagedObject{
+        return NSEntityDescription.insertNewObject(forEntityName: entityName, into: managedObjectContext)
+    }
+    func save() -> Bool{
+        do{try managedObjectContext.save(); return true}catch{return false}
+    }
+    func saveData(winner:String,loser:String){
+        let coreDataObject = createEntity(entityName: "History") as! History
+        coreDataObject.playedOn = Date()
+        coreDataObject.winner = winner
+        coreDataObject.loser = loser
+        _ = save()
+    }
     
 }
 
