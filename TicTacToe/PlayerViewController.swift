@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,TicProtocol {
     
@@ -14,6 +15,7 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     @IBOutlet var player1: UILabel!
     @IBOutlet var player2: UILabel!
+    var player:AVAudioPlayer!
     
     let defaults = UserDefaults.standard
     
@@ -27,6 +29,12 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
     var a:Bool = false
     var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var winningCombinations = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let _ = player{
+            player.stop()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +53,19 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.reloadData()
+        
+        let audioURL = Bundle.main.path(forResource: "sample", ofType: "mp3")
+        let url = URL(fileURLWithPath: audioURL!)
+        do{
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            player =  try AVAudioPlayer(contentsOf: url)
+            player.prepareToPlay()
+            player.volume = 1.0
+            player.play()
+        }catch{
+            print(error.localizedDescription)
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -187,6 +208,7 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
         var navView = self.navigationController?.viewControllers
         navView?.remove(at: 1)
         navView?.append(vc)
+        player.stop()
         self.navigationController?.setViewControllers(navView!, animated: true)
     }
     

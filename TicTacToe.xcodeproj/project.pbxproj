@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		852544881E93C3FE00D82BA1 /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852544871E93C3FE00D82BA1 /* sample.mp3 */; };
 		85DFD71D1E9340FF0059A308 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD71C1E9340FF0059A308 /* AppDelegate.swift */; };
 		85DFD71F1E9340FF0059A308 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD71E1E9340FF0059A308 /* PlayerViewController.swift */; };
 		85DFD7221E9340FF0059A308 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DFD7201E9340FF0059A308 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		852544871E93C3FE00D82BA1 /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
 		85DFD7191E9340FE0059A308 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DFD71C1E9340FF0059A308 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85DFD71E1E9340FF0059A308 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		85DFD7301E9341580059A308 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				852544871E93C3FE00D82BA1 /* sample.mp3 */,
 				85DFD7231E9340FF0059A308 /* Assets.xcassets */,
 				85DFD7251E9340FF0059A308 /* LaunchScreen.storyboard */,
 				85DFD7361E935C240059A308 /* TicTacToeModel.xcdatamodeld */,
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85DFD72F1E93414C0059A308 /* TicCell.xib in Resources */,
+				852544881E93C3FE00D82BA1 /* sample.mp3 in Resources */,
 				85DFD7271E9340FF0059A308 /* LaunchScreen.storyboard in Resources */,
 				85DFD7241E9340FF0059A308 /* Assets.xcassets in Resources */,
 				85DFD7221E9340FF0059A308 /* Main.storyboard in Resources */,
@@ -344,6 +348,7 @@
 				85DFD72D1E9340FF0059A308 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
