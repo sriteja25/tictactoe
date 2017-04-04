@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,TicProtocol {
     
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -43,6 +43,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         }
         cell.layer.borderColor =  UIColor.white.cgColor
         cell.layer.borderWidth = 1
+        cell.delegate = self
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -59,6 +60,8 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         return 0
     }
     
-
+    func didTapOnCell(cell: TicCell) {
+        
+    }
 }
 

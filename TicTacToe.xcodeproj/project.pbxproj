@@ -8,24 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		85DFD71D1E9340FF0059A308 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD71C1E9340FF0059A308 /* AppDelegate.swift */; };
-		85DFD71F1E9340FF0059A308 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD71E1E9340FF0059A308 /* ViewController.swift */; };
+		85DFD71F1E9340FF0059A308 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD71E1E9340FF0059A308 /* PlayerViewController.swift */; };
 		85DFD7221E9340FF0059A308 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DFD7201E9340FF0059A308 /* Main.storyboard */; };
 		85DFD7241E9340FF0059A308 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85DFD7231E9340FF0059A308 /* Assets.xcassets */; };
 		85DFD7271E9340FF0059A308 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DFD7251E9340FF0059A308 /* LaunchScreen.storyboard */; };
 		85DFD72F1E93414C0059A308 /* TicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85DFD72E1E93414C0059A308 /* TicCell.xib */; };
 		85DFD7331E9341840059A308 /* TicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD7321E9341840059A308 /* TicCell.swift */; };
+		85DFD7381E935C240059A308 /* TicTacToeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD7361E935C240059A308 /* TicTacToeModel.xcdatamodeld */; };
+		85DFD73B1E935F140059A308 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD73A1E935F140059A308 /* LaunchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		85DFD7191E9340FE0059A308 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DFD71C1E9340FF0059A308 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		85DFD71E1E9340FF0059A308 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		85DFD71E1E9340FF0059A308 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		85DFD7211E9340FF0059A308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85DFD7231E9340FF0059A308 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85DFD7261E9340FF0059A308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85DFD7281E9340FF0059A308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85DFD72E1E93414C0059A308 /* TicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicCell.xib; sourceTree = "<group>"; };
 		85DFD7321E9341840059A308 /* TicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicCell.swift; sourceTree = "<group>"; };
+		85DFD7371E935C240059A308 /* TicTacToeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TicTacToeModel.xcdatamodel; sourceTree = "<group>"; };
+		85DFD73A1E935F140059A308 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				85DFD7311E93416A0059A308 /* Cells */,
-				85DFD71E1E9340FF0059A308 /* ViewController.swift */,
+				85DFD7391E935EFD0059A308 /* Controllers */,
 				85DFD71C1E9340FF0059A308 /* AppDelegate.swift */,
 				85DFD7201E9340FF0059A308 /* Main.storyboard */,
 				85DFD7301E9341580059A308 /* Supporting Files */,
@@ -72,6 +76,7 @@
 			children = (
 				85DFD7231E9340FF0059A308 /* Assets.xcassets */,
 				85DFD7251E9340FF0059A308 /* LaunchScreen.storyboard */,
+				85DFD7361E935C240059A308 /* TicTacToeModel.xcdatamodeld */,
 				85DFD7281E9340FF0059A308 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -84,6 +89,15 @@
 				85DFD7321E9341840059A308 /* TicCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		85DFD7391E935EFD0059A308 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				85DFD71E1E9340FF0059A308 /* PlayerViewController.swift */,
+				85DFD73A1E935F140059A308 /* LaunchViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +174,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85DFD71F1E9340FF0059A308 /* ViewController.swift in Sources */,
+				85DFD7381E935C240059A308 /* TicTacToeModel.xcdatamodeld in Sources */,
+				85DFD73B1E935F140059A308 /* LaunchViewController.swift in Sources */,
+				85DFD71F1E9340FF0059A308 /* PlayerViewController.swift in Sources */,
 				85DFD71D1E9340FF0059A308 /* AppDelegate.swift in Sources */,
 				85DFD7331E9341840059A308 /* TicCell.swift in Sources */,
 			);
@@ -330,6 +346,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		85DFD7361E935C240059A308 /* TicTacToeModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				85DFD7371E935C240059A308 /* TicTacToeModel.xcdatamodel */,
+			);
+			currentVersion = 85DFD7371E935C240059A308 /* TicTacToeModel.xcdatamodel */;
+			path = TicTacToeModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 85DFD7111E9340FE0059A308 /* Project object */;
 }
