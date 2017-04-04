@@ -22,9 +22,6 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.reloadData()
-        
-        
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,6 +45,9 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
         cell.layer.borderWidth = 1
         cell.delegate = self
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = UIScreen.main.bounds
