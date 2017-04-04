@@ -19,9 +19,5 @@ class TicCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    @IBAction func didTapOnCell(_ sender: Any) {
-        if let _ = delegate{
-            delegate?.didTapOnCell(cell: self)
-        }
-    }
+    
 }

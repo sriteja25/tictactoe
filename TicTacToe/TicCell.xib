@@ -21,29 +21,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="571-Uf-g18">
                         <rect key="frame" x="0.0" y="0.0" width="115" height="135"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFo-sB-ERD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFo-sB-ERD">
                                 <rect key="frame" x="0.0" y="0.0" width="115" height="135"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQh-kK-ICX">
-                                <rect key="frame" x="0.0" y="0.0" width="115" height="135"/>
-                                <connections>
-                                    <action selector="didTapOnCell:" destination="liE-3u-ijz" eventType="touchUpInside" id="Kb5-44-ovE"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vQh-kK-ICX" firstAttribute="leading" secondItem="571-Uf-g18" secondAttribute="leading" id="5kn-YA-43k"/>
                             <constraint firstItem="LFo-sB-ERD" firstAttribute="top" secondItem="571-Uf-g18" secondAttribute="top" id="7o6-a2-p2h"/>
-                            <constraint firstAttribute="bottom" secondItem="vQh-kK-ICX" secondAttribute="bottom" id="8cR-N6-KVw"/>
                             <constraint firstAttribute="trailing" secondItem="LFo-sB-ERD" secondAttribute="trailing" id="SoU-5D-hkx"/>
-                            <constraint firstItem="vQh-kK-ICX" firstAttribute="top" secondItem="571-Uf-g18" secondAttribute="top" id="VV0-ZS-jy7"/>
                             <constraint firstItem="LFo-sB-ERD" firstAttribute="leading" secondItem="571-Uf-g18" secondAttribute="leading" id="Y16-gl-0Iz"/>
                             <constraint firstAttribute="bottom" secondItem="LFo-sB-ERD" secondAttribute="bottom" id="kda-Zr-zHR"/>
-                            <constraint firstAttribute="trailing" secondItem="vQh-kK-ICX" secondAttribute="trailing" id="lhD-Tn-Td4"/>
                         </constraints>
                     </view>
                 </subviews>

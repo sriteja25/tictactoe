@@ -11,7 +11,8 @@ import UIKit
 class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,TicProtocol {
     
     @IBOutlet weak var collectionView: UICollectionView!
-
+    var isPlayed = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -36,17 +37,25 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! TicCell
-        if indexPath.row % 2 == 0{
-            cell.cellValue.text = "O"
-        }else{
-            cell.cellValue.text = "X"
-        }
+        cell.cellValue.text = "-"
+            
         cell.layer.borderColor =  UIColor.white.cgColor
         cell.layer.borderWidth = 1
         cell.delegate = self
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("IndexPath:\(indexPath.item)")
+        let cell = collectionView.cellForItem(at: indexPath) as! TicCell
+        if isPlayed == Player.One.rawValue{
+            isPlayed = 1
+            cell.cellValue.text = "X"
+            
+        }else{
+            isPlayed = 0
+            cell.cellValue.text = "O"
+        }
+        cell.isUserInteractionEnabled = false
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -66,5 +75,10 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
     func didTapOnCell(cell: TicCell) {
         
     }
+}
+
+enum Player:Int{
+    case One = 0,
+    Two = 1
 }
 
