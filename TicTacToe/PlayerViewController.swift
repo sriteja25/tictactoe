@@ -147,12 +147,16 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
         var title:String = ""
         var message:String = ""
         
+        //Winning combination is the array with all the winning combinations. Cells of same value placed in any of these arrays, will be the winning condition
+        
         for combination in winningCombinations{
             
             
             if (gameState[combination[0]] != 0 && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]]) {
                 
                 if (gameState[combination[0]] == 1){
+                    
+                     //Player2 is the winner
                     
                     title = "Player 2 has won"
                     message = "Would you like to play again ?"
@@ -168,6 +172,8 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
                 }
             
                 if gameState[combination[0]] == 2 {
+                    
+                    //Player1 is the winner
                 
                     title = "Player 1 has won"
                     message = "Would you like to play again ?"
@@ -246,15 +252,20 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     func draw(){
     
+        //Loop through all the elements in the gameState Array
         
         for i in 0...gameState.count-1{
         
+            //Count the number of values in the array which are not equal to 0
+            
             if(gameState[i] != 0){
             
                 count = count + 1
             }
         
         }
+        
+        //When all the indexes in the gameState array are not equal to zero, the value of count will be exactly 45  - >  1 + 2 + 3 + 4 + 5 + 6 +7 + 8 + 9. Each value represents how many cells will be filled. When all the 9 cells are filled and the winning function is not determined , then Draw function will be executed and Match will be drawn.
         
         if (count == 45){
         
