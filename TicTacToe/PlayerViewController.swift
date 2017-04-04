@@ -8,15 +8,17 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,TicProtocol {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet var player1: UILabel!
     @IBOutlet var player2: UILabel!
-    var player:AVAudioPlayer!
     
+    var player:AVAudioPlayer!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var managedObjectContext:NSManagedObjectContext{return appDelegate.managedObjectContext}
     let defaults = UserDefaults.standard
     
     var player1Score:Int?
@@ -156,6 +158,7 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
                     player2Score = player2Score! + 1
                     defaults.set(player2Score, forKey: "player2")
                     defaults.synchronize()
+                    saveData(winner: "Player 2", loser: "Player 1")
                     playerScores()
             
                 print("Noughts has won!")
@@ -170,6 +173,7 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
                     player1Score = player1Score! + 1
                     defaults.set(player1Score, forKey: "player1")
                     defaults.synchronize()
+                    saveData(winner: "Player 1", loser: "Player 2")
                     playerScores()
                 
                 print("Crosses has won!")
@@ -178,6 +182,14 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
         }
      }
   }
+    
+    func saveData(winner:String,loser:String){
+        let coreDataObject = createEntity(entityName: "History") as! History
+        coreDataObject.playedOn = Date()
+        coreDataObject.winner = winner
+        coreDataObject.loser = loser
+        _ = save()
+    }
     
     func addAlertView(title:String, message:String){
     
@@ -244,7 +256,13 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     
     }
-    
+ 
+    func createEntity(entityName:String) -> NSManagedObject{
+        return NSEntityDescription.insertNewObject(forEntityName: entityName, into: managedObjectContext)
+    }
+    func save() -> Bool{
+        do{try managedObjectContext.save(); return true}catch{return false}
+    }
     
 }
 

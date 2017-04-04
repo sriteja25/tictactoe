@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		852544881E93C3FE00D82BA1 /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852544871E93C3FE00D82BA1 /* sample.mp3 */; };
+		8525448B1E93C7CD00D82BA1 /* History+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852544891E93C7CD00D82BA1 /* History+CoreDataClass.swift */; };
+		8525448C1E93C7CD00D82BA1 /* History+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525448A1E93C7CD00D82BA1 /* History+CoreDataProperties.swift */; };
+		8525448E1E93CA6400D82BA1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525448D1E93CA6400D82BA1 /* HistoryViewController.swift */; };
 		85DFD71D1E9340FF0059A308 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD71C1E9340FF0059A308 /* AppDelegate.swift */; };
 		85DFD71F1E9340FF0059A308 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DFD71E1E9340FF0059A308 /* PlayerViewController.swift */; };
 		85DFD7221E9340FF0059A308 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DFD7201E9340FF0059A308 /* Main.storyboard */; };
@@ -21,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		852544871E93C3FE00D82BA1 /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
+		852544891E93C7CD00D82BA1 /* History+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "History+CoreDataClass.swift"; path = "../History+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8525448A1E93C7CD00D82BA1 /* History+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "History+CoreDataProperties.swift"; path = "../History+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8525448D1E93CA6400D82BA1 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		85DFD7191E9340FE0059A308 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DFD71C1E9340FF0059A308 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85DFD71E1E9340FF0059A308 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +70,8 @@
 		85DFD71B1E9340FF0059A308 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				852544891E93C7CD00D82BA1 /* History+CoreDataClass.swift */,
+				8525448A1E93C7CD00D82BA1 /* History+CoreDataProperties.swift */,
 				85DFD7311E93416A0059A308 /* Cells */,
 				85DFD7391E935EFD0059A308 /* Controllers */,
 				85DFD71C1E9340FF0059A308 /* AppDelegate.swift */,
@@ -99,6 +107,7 @@
 			children = (
 				85DFD71E1E9340FF0059A308 /* PlayerViewController.swift */,
 				85DFD73A1E935F140059A308 /* LaunchViewController.swift */,
+				8525448D1E93CA6400D82BA1 /* HistoryViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -178,11 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8525448C1E93C7CD00D82BA1 /* History+CoreDataProperties.swift in Sources */,
 				85DFD7381E935C240059A308 /* TicTacToeModel.xcdatamodeld in Sources */,
 				85DFD73B1E935F140059A308 /* LaunchViewController.swift in Sources */,
 				85DFD71F1E9340FF0059A308 /* PlayerViewController.swift in Sources */,
 				85DFD71D1E9340FF0059A308 /* AppDelegate.swift in Sources */,
+				8525448B1E93C7CD00D82BA1 /* History+CoreDataClass.swift in Sources */,
 				85DFD7331E9341840059A308 /* TicCell.swift in Sources */,
+				8525448E1E93CA6400D82BA1 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

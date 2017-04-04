@@ -36,6 +36,11 @@ class LaunchViewController: UIViewController {
     @IBAction func didTapOnComputer(_ sender: Any) {
         //Pending...
     }
+    
+    @IBAction func didTapOnHistory(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
     /*
     // MARK: - Navigation
