@@ -19,6 +19,7 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     var player1Score:Int?
     var player2Score:Int?
+    var count:Int = 0
     
     var isPlayed = 0
     
@@ -90,8 +91,12 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
         }
         cell.isUserInteractionEnabled = false
         
-        winning()
         print(gameState)
+        
+        winning()
+        draw()
+        
+        
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -128,7 +133,7 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
                     message = "Would you like to play again ?"
                     addAlertView(title:title, message:message)
                     player2Score = player2Score! + 1
-                    defaults.set(player1Score, forKey: "player2")
+                    defaults.set(player2Score, forKey: "player2")
                     defaults.synchronize()
                     playerScores()
             
@@ -197,6 +202,27 @@ class PlayerViewController: UIViewController,UICollectionViewDelegate,UICollecti
         player2.text = "\(player2Score!)"
         
         
+    }
+    
+    func draw(){
+    
+        
+        for i in 0...gameState.count-1{
+        
+            if(gameState[i] != 0){
+            
+                count = count + 1
+            }
+        
+        }
+        
+        if (count == 45){
+        
+            let message = "Would you like to play again ?"
+            addAlertView(title:"Match Drawn", message: message)
+        }
+    
+    
     }
     
     
